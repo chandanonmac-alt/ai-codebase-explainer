@@ -56,7 +56,7 @@ This system solves that by:
 
  --- 
 ## 🏗️ Architecture
-<p align="center">
+<p align="left">
   <img src="./assets/architecture.png" width="500"/>
 </p>
 
@@ -84,16 +84,16 @@ The system directly interacts with the repository layer without any intermediate
 ---
 
 ## 📂 Project Structure
+```bash
 .
 ├── app.py # Streamlit UI
 ├── ingest.py # Code ingestion + chunking
 ├── query.py # Retrieval + response logic
 ├── embeddings.py # Embedding generation
 ├── vectorstore.py # FAISS index creation & search
-├── requirements.txt
-├── .gitignore
-└── sample_repo/ # Sample codebase for testing
-
+├── requirements.txt #Install locally before running
+└── ai-productivity-assistant # Sample codebase for testing
+```
 
 ---
 
@@ -138,10 +138,10 @@ git clone https://github.com/chandanonmac-alt/ai-codebase-explainer.git
 cd ai-code-explainer-advanced
 pip install -r requirements.txt
 
-Ingest Codebase
+#Ingest Codebase
 python ingest.py
 
-Start App
+#Start App
 streamlit run app.py
 
 💡 Sample Questions
@@ -177,11 +177,11 @@ It is: Retrieve → Structure → Constrain → Reason → Answer
 ```
 ### 🖥️ Application Interface & Example Query Output
 
-<p align="center">
+<p align="left">
   <img src="./assets/main_modules_question.png" width="500"/>
 </p>
 
-<p align="center">
+<p align="left">
   <img src="./assets/caching_question.png" width="500"/>
 </p>
 
