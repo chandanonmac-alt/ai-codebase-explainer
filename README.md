@@ -174,22 +174,17 @@ Stateful memory
 RAG is not just Retrieve → Generate
 It is: Retrieve → Structure → Constrain → Reason → Answer
 
-🤝 Contributions
+### 🖥️ Application Interface & Example Query Output
 
+![Query Output 1](assets/caching_question.png)
+![Query Output 2](assets/main_modules_question.png)
+
+🤝 Contributions
 This is a personal learning project. Feedback and suggestions are welcome.
 
 📬 Connect
 
 If you're working on RAG systems, LLM applications, or AI engineering — happy to connect and exchange ideas.
 https://www.linkedin.com/in/chandan-kumar-024b849b/
-## 📸 Demo / Screenshots
 
-### 🖥️ Application Interface
 
-![App Screenshot](assets/app_ui.png)
-
----
-
-### 🔍 Example Query Output
-
-![Query Output](assets/sample_output.png)
