@@ -1,6 +1,6 @@
 # 🧠 AI Codebase Explainer (RAG)
 
-> Understand any codebase in seconds using Retrieval-Augmented Generation (RAG)
+Ask questions about any codebase and get precise, context-aware answers using RAG + local LLM.
 
 ---
 
@@ -22,6 +22,12 @@ This system solves that by:
 - Avoiding **hallucinations through grounded context**
 
 ---
+## 🚀 What Makes This Different
+
+- Uses **reranking** to improve retrieval precision  
+- Implements **structured context construction**  
+- Handles **negative queries to reduce hallucination**  
+- Fully **local pipeline (no external APIs)**
 
 ## ⚡ Key Capabilities
 
@@ -41,7 +47,14 @@ This system solves that by:
   Handles negative queries with “no evidence found” behavior
 
 ---
+## 🧠 Design Decisions
 
+- Limited context to top-k chunks to avoid noise  
+- Deduplicated results to prevent repetition  
+- Used structured prompts to guide reasoning  
+- Avoided sending full codebase to stay within context window
+
+  
 ## 🏗️ Architecture
 User Query
 ↓
@@ -173,12 +186,14 @@ Stateful memory
 
 RAG is not just Retrieve → Generate
 It is: Retrieve → Structure → Constrain → Reason → Answer
-
+```
 ### 🖥️ Application Interface & Example Query Output
 
-![Caching Question](https://raw.githubusercontent.com/chandanonmac-alt/ai-codebase-explainer/main/assets/caching_question.png)
-![Main Modules](https://raw.githubusercontent.com/chandanonmac-alt/ai-codebase-explainer/main/assets/main_modules_question.png)
+![Main Modules](assets/main_modules_question.png)
+![Caching Question](assets/caching_question.png)
+
 🤝 Contributions
+
 This is a personal learning project. Feedback and suggestions are welcome.
 
 📬 Connect
