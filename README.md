@@ -54,24 +54,12 @@ This system solves that by:
 - Used structured prompts to guide reasoning  
 - Avoided sending full codebase to stay within context window
 
-  
+ --- 
 ## 🏗️ Architecture
-User Query
-↓
-Embedding Generation
-↓
-Vector Search (FAISS)
-↓
-Top-K Retrieval + Reranking
-↓
-Context Construction (deduplicated + structured)
-↓
-LLM (Ollama - local)
-↓
-Final Answer
+<p align="center">
+  <img src="./assets/architecture.png" width="500"/>
+</p>
 
-
----
 
 ## 🧪 Example Interaction
 
@@ -189,8 +177,14 @@ It is: Retrieve → Structure → Constrain → Reason → Answer
 ```
 ### 🖥️ Application Interface & Example Query Output
 
-![Main Modules](assets/main_modules_question.png)
-![Caching Question](assets/caching_question.png)
+<p align="center">
+  <img src="./assets/main_modules_question.png" width="500"/>
+</p>
+
+<p align="center">
+  <img src="./assets/caching_question.png" width="500"/>
+</p>
+
 
 🤝 Contributions
 
