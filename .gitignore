@@ -1,0 +1,53 @@
+# -------------------------
+# Python
+# -------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# -------------------------
+# Virtual Environments
+# -------------------------
+venv/
+.env/
+.env
+
+# -------------------------
+# OS Files
+# -------------------------
+.DS_Store
+Thumbs.db
+
+# -------------------------
+# Logs
+# -------------------------
+*.log
+
+# -------------------------
+# RAG Artifacts (CRITICAL)
+# -------------------------
+vector_store.pkl
+*.faiss
+*.index
+ingest_old.py
+query_I2_1.py
+query_old.py
+code_loader_old.py
+sample_repo/
+
+
+# Embedding cache / temp files
+cache/
+embeddings/
+
+# -------------------------
+# Temporary files
+# -------------------------
+*.tmp
+
+# -------------------------
+# IDE / Editor
+# -------------------------
+.vscode/
+.idea/
