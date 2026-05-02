@@ -53,8 +53,9 @@ This system solves that by:
 - Deduplicated results to prevent repetition  
 - Used structured prompts to guide reasoning  
 - Avoided sending full codebase to stay within context window
-
- --- 
+- Please refer this addditional Resource on Design improvements
+[📘 RAG Trivia Q&A (PDF)](./assets/AI_Codebase_Explainer_Course_Notes.pdf)
+ ---   
 ## 🏗️ Architecture
 <p align="left">
   <img src="./assets/architecture.png" width="500"/>
