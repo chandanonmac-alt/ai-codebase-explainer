@@ -1,37 +1,44 @@
 # 🧠 AI Codebase Explainer (RAG)
 
-A Retrieval-Augmented Generation (RAG) based application that analyzes and explains codebases using semantic search and a local LLM.
+> Understand any codebase in seconds using Retrieval-Augmented Generation (RAG)
 
 ---
 
-## 🚀 Overview
+## 🚀 What This Project Does
 
-Understanding unfamiliar codebases can be time-consuming. This project solves that by combining:
+This project is an AI-powered system that analyzes a codebase and answers questions about it — like a senior engineer who has already read the entire repo.
 
-- **Semantic code search** using embeddings
-- **Context-aware reasoning** using an LLM
-- **Structured prompt engineering** to reduce hallucination
-
-👉 Ask questions about any codebase and get clear, contextual explanations.
+Instead of keyword search, it uses **semantic retrieval + LLM reasoning** to provide accurate, contextual explanations.
 
 ---
 
-## ✨ Key Features
+## 🔍 Why This Matters
 
-- 🔍 **Semantic Retrieval**  
-  Finds relevant code snippets using embeddings (not keyword search)
+Understanding a new codebase is one of the biggest productivity bottlenecks for engineers.
 
-- 🧠 **Context-Aware Explanations**  
-  Generates answers grounded in retrieved code context
+This system solves that by:
+- Surfacing **relevant code instantly**
+- Providing **structured explanations**
+- Avoiding **hallucinations through grounded context**
 
-- ⚡ **Reranking for Better Precision**  
-  Improves relevance by filtering top results
+---
+
+## ⚡ Key Capabilities
+
+- 🔎 **Semantic Code Search**  
+  Finds relevant code using embeddings (not keyword matching)
+
+- 🧠 **Context-Aware Reasoning**  
+  Uses retrieved code snippets to generate grounded explanations
+
+- 🎯 **Reranking for Precision**  
+  Retrieves top-k results and refines them for better relevance
 
 - 🧱 **Structured Prompting**  
-  Ensures consistent and logical responses
+  Enforces consistent reasoning patterns across queries
 
 - 🛑 **Hallucination Control**  
-  Encourages evidence-based answers (e.g., “no evidence found”)
+  Handles negative queries with “no evidence found” behavior
 
 ---
 
@@ -44,11 +51,72 @@ Vector Search (FAISS)
 ↓
 Top-K Retrieval + Reranking
 ↓
-Context Construction
+Context Construction (deduplicated + structured)
 ↓
-LLM (Ollama)
+LLM (Ollama - local)
 ↓
 Final Answer
+
+
+---
+
+## 🧪 Example Interaction
+
+### ❓ Question:
+Which files handle data access?
+
+### ✅ Answer:
+- `repository/task_repo.py`  
+- `repository/user_repo.py`  
+
+These files belong to the **repository layer**, responsible for data access and persistence.
+
+---
+
+### ❓ Question:
+Does this project use caching?
+
+### ✅ Answer:
+There is no evidence of a caching mechanism in the provided codebase.  
+The system directly interacts with the repository layer without any intermediate cache.
+
+---
+
+## 📂 Project Structure
+.
+├── app.py # Streamlit UI
+├── ingest.py # Code ingestion + chunking
+├── query.py # Retrieval + response logic
+├── embeddings.py # Embedding generation
+├── vectorstore.py # FAISS index creation & search
+├── requirements.txt
+├── .gitignore
+└── sample_repo/ # Sample codebase for testing
+
+
+---
+
+## ⚙️ How It Works
+
+### 1. Ingestion
+- Reads code files from a repository
+- Splits them into chunks
+- Generates embeddings
+- Stores them in a FAISS vector index
+
+---
+
+### 2. Retrieval
+- Converts user query into embedding
+- Retrieves top-k relevant chunks
+- Applies reranking and deduplication
+
+---
+
+### 3. Reasoning
+- Builds structured context
+- Sends to local LLM (Ollama)
+- Generates grounded explanation
 
 ---
 
@@ -57,116 +125,71 @@ Final Answer
 - **Language:** Python  
 - **Embeddings:** sentence-transformers  
 - **Vector Store:** FAISS  
-- **LLM:** Ollama (local)  
+- **LLM:** Ollama (local inference)  
 - **UI:** Streamlit  
 
 ---
 
-## 📂 Project Structure
+## ▶️ Run Locally
 
-├── ai-productivity-assistant # Sample Repo to try out this application with
-├── app.py # Streamlit UI
-├── ingest.py # Codebase ingestion + chunking
-├── query.py # Retrieval + response generation
-├── vector_store.py # Backend logic for Vector_store
-├── embeddings.py # Embedding generation
-├── code_loader.py # Loads codebase from sample repo , replace repo name here if needed.
-├── requirements.txt
-└── README.md
-
-
----
-
-## ⚙️ How It Works
-
-### 1. Ingestion Phase
-- Reads code files
-- Splits them into chunks
-- Generates embeddings
-- Stores them in a FAISS index
-
-### 2. Query Phase
-- Converts user question into embedding
-- Retrieves relevant code chunks
-- Applies reranking and filtering
-- Sends structured context to LLM
-
-### 3. Response Generation
-- LLM generates explanation grounded in retrieved context
-
----
-
-## ▶️ How to Run
-
-### 1. Clone the repository
-git clone <this-repo-url>
+```bash
+git clone https://github.com/chandanonmac-alt/ai-codebase-explainer.git
 cd ai-code-explainer-advanced
-
----
-
-### 2. Install dependencies
 pip install -r requirements.txt
 
----
-
-### 3. Run ingestion
+Ingest Codebase
 python ingest.py
 
----
-
-### 4. Start the app
+Start App
 streamlit run app.py
 
+💡 Sample Questions
+What are the main modules in this project?
+Which files handle data access?
+Which function interacts with the repository?
+Does this system use authentication?
+Is caching implemented?
+
+🧠 What This Project Demonstrates
+End-to-end RAG system design
+Retrieval optimization using reranking
+Prompt engineering for structured reasoning
+Hallucination control via negative query handling
+Clean separation of retrieval, reasoning, and orchestration
+
+🚧 Limitations
+Stateless (no conversation memory)
+Limited context window (local LLM constraints)
+No function-level dependency graph yet
+
+🔮 Future Improvements
+Query intent routing
+Function-level chunking
+Dependency-aware retrieval
+Multi-query expansion
+Stateful memory
+
+📌 Key Learning
+
+RAG is not just Retrieve → Generate
+It is: Retrieve → Structure → Constrain → Reason → Answer
+
+🤝 Contributions
+
+This is a personal learning project. Feedback and suggestions are welcome.
+
+📬 Connect
+
+If you're working on RAG systems, LLM applications, or AI engineering — happy to connect and exchange ideas.
+https://www.linkedin.com/in/chandan-kumar-024b849b/
+## 📸 Demo / Screenshots
+
+### 🖥️ Application Interface
+
+![App Screenshot](assets/app_ui.png)
 
 ---
 
-## 💡 Sample Questions
+### 🔍 Example Query Output
 
-Try asking:
-
-- What are the main modules in this project?
-- Which files handle data access?
-- Which function interacts with the repository?
-- Does this project use caching?
-- Is there any authentication mechanism?
-
----
-
-## 🧪 What This Project Demonstrates
-
-- End-to-end **RAG pipeline implementation**
-- Improved retrieval using **reranking**
-- **Structured prompt engineering**
-- Handling **edge cases & negative queries**
-- Reducing **LLM hallucination**
-
----
-
-## 📌 Key Learnings
-
-- Retrieval quality directly impacts answer quality  
-- Structured context improves consistency  
-- Prompt design controls reasoning behavior  
-- Negative testing is critical for robustness  
-
----
-
-## 🚀 Future Improvements
-
-- Query intent routing  
-- Function-level chunking  
-- Dependency awareness  
-- Multi-query retrieval  
-- Stateful memory  
-
----
-
-## 🤝 Contributions
-
-This is a personal learning project. Feedback and suggestions are welcome!
-
----
-
-## 📬 Connect
-
-If you're working on RAG systems or AI engineering, feel free to connect and discuss ideas.
+![Query Output](assets/sample_output.png)
