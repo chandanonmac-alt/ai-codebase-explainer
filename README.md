@@ -176,7 +176,7 @@ It is: Retrieve → Structure → Constrain → Reason → Answer
 
 ### 🖥️ Application Interface & Example Query Output
 
-![Query Output 1](assets/caching_question.png)
+![Query Output 1](https://raw.githubusercontent.com/chandanonmac-alt/ai-codebase-explainer/main/assets/caching_question.png)
 ![Query Output 2](assets/main_modules_question.png)
 
 🤝 Contributions
